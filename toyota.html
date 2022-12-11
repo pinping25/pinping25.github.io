@@ -28,7 +28,7 @@
             margin-top: 20px;
         }
         /* 紅色區大標 */
-        .odd .title{
+        .odd .num{
             width: 310px;
             height: 120px;
             margin: 0px;
@@ -37,7 +37,7 @@
             justify-content:flex-start;
         }
         /* 紅色區文字 */
-        .odd .title h1{           
+        .odd .num h1{           
             font-size: 30px;
             color: #fff;
 
@@ -45,18 +45,19 @@
             
         }
         /* 紅色區直向數字 */
-        .odd .title h1 span{
-            writing-mode: vertical-lr;
-            text-orientation: mixed;
-            font-size: 80px;
-            vertical-align:middle;
+        .odd .num h1 span{
             line-height: 80px;
             font-weight: 100;
+            font-size: 80px;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;         
+            vertical-align:middle;
+           
             
         }
 
         /* 黑色區小標 */
-        .odd .second-title{
+        .odd .title{
             width: 300px;
             margin-top: 0px;
             padding: 5px;
@@ -68,7 +69,7 @@
             z-index: 2;
         }
         /* 黑色區文字 */
-        .odd .second-title p{
+        .odd .title p{
           font-size:18px;
           line-height: 1.5em;
             
@@ -160,7 +161,7 @@
             flex-wrap: wrap;
             justify-content: end;
         }
-        .even .title{
+        .even .num{
             width: 320px;
             height: 120px;
             margin: 0px;
@@ -169,23 +170,24 @@
             justify-content:flex-end;
             z-index: 1;
         }
-        .even .title h1{           
+        .even .num h1{           
             font-size: 30px;
             color: #fff;
 
             
         }
-        .even .title h1 span{
-            writing-mode: vertical-lr;
-            text-orientation: mixed;
-            font-size: 80px;
-            vertical-align:middle;
+        .even .num h1 span{
             line-height: 80px;
             font-weight: 100;
+            font-size: 80px;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            vertical-align:middle;
+          
             
         }
 
-        .even .second-title{
+        .even .title{
             width: 300px;
             color:#fff;
             background-color: #000;
@@ -197,7 +199,7 @@
             z-index: 2;
         }
 
-        .even .second-title p{
+        .even .title p{
           font-size:18px;
           line-height: 1.5em;
             
@@ -283,11 +285,11 @@
 <body>
     <main class="container">
         <section class="odd">
-            <div class="title">
+            <div class="num">
                 <h1><span>01</span>操控樂趣</h1>
             </div>
             <div class="introduce">
-                    <article class="second-title">
+                    <article class="title">
                         <h2>人人滿意的駕駛體驗</h2>
                         <p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。</p>
                     </article>
@@ -318,11 +320,11 @@
         </section>
         
         <section class="even">
-            <div class="title">
+            <div class="num">
                 <h1>安全守護<span>02</span></h1>
             </div>
             <div class="introduce">
-                    <article class="second-title">
+                    <article class="title">
                         <h2>行車更安心的高剛性車體</h2>
                         <p>您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞。世界級的安全功能讓您輕鬆自如享受旅程、毫無後顧之憂。</p>
                     </article>
@@ -348,11 +350,11 @@
         </section>
 
         <section class="odd">
-            <div class="title">
+            <div class="num">
                 <h1><span>03</span>乘坐舒適</h1>
             </div>
             <div class="introduce">
-                    <article class="second-title">
+                    <article class="title">
                         <h2>令人放鬆舒適的車室空間</h2>
                         <p>車室空間設計著重人體工學，透過方向盤、踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛不疲勞的舒適駕馭體驗。</p>
                     </article>
@@ -382,11 +384,11 @@
         </section>
 
         <section class="even">
-            <div class="title">
+            <div class="num">
                 <h1>以人為本<span>04</span></h1>
             </div>
             <div class="introduce">
-                    <article class="second-title">
+                    <article class="title">
                         <h2>使用者導向的貼心設計</h2>
                         <p>藉由高度人性化的介面整合、傳遞車輛資訊，豐富日常駕駛體驗。<br>
                             從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予即時回應。</p>
@@ -413,11 +415,11 @@
         </section>
 
         <section class="odd">
-            <div class="title">
+            <div class="num">
                 <h1><span>05</span>引以為傲</h1>
             </div>
             <div class="introduce">
-                    <article class="second-title">
+                    <article class="title">
                         <h2>極具吸引力的精心設計</h2>
                         <p>TNGA 車款擁有讓人忍不住回頭的新潮外觀、讓駕駛充滿自信的駕馭快感！不僅讓車主能展現個人風格，也能讓擁有者都能引以為傲。</p>
                     </article>
