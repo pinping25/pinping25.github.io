@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   
+        .container{
+            width: 100%;
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+        /* 單數區域 */
+        .odd{
+            width: 960px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 500px 0px;
+        }
+        .odd:first-child
+        {
+            margin-top: 20px;
+        }
+        /* 紅色區大標 */
+        .odd .title{
+            width: 310px;
+            height: 120px;
+            margin: 0px;
+            background-color: rgba(173, 28, 28);
+            display:flex ;
+            justify-content:flex-start;
+        }
+        /* 紅色區文字 */
+        .odd .title h1{           
+            font-size: 30px;
+            color: #fff;
+
+            
+            
+        }
+        /* 紅色區直向數字 */
+        .odd .title h1 span{
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            font-size: 80px;
+            vertical-align:middle;
+            line-height: 80px;
+            font-weight: 100;
+            
+        }
+
+        /* 黑色區小標 */
+        .odd .second-title{
+            width: 300px;
+            margin-top: 0px;
+            padding: 5px;
+            position: absolute;
+            left:0px;
+            top:0px;
+            color:#fff;
+            background-color: #000;
+            z-index: 2;
+        }
+        /* 黑色區文字 */
+        .odd .second-title p{
+          font-size:18px;
+          line-height: 1.5em;
+            
+        }
+
+        /* 圖文介紹區 */
+        .odd .introduce{
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            align-items: center;  
+            position: relative;
+        }
+        .odd .introduce img{
+            width: 800px;   
+            z-index: 1;
+            vertical-align: top;
+        }
+        /* 裝飾用灰色背景 */
+        .odd .gray-bkg{
+            background-color: #eee;
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            right: -60px;
+            top:-60px;
+            z-index: 0;
+        }
+        /* 灰色區域 */
+        .odd .text{
+            width: 670px;
+            background-color: #eee;
+            padding-bottom: 30px;
+            position: absolute;
+            left:-10px;
+            top:92.5%;
+            z-index:2;
+        }
+        /* 灰色區域標題 */
+        .odd .text .text-title{
+            color:rgba(173, 28, 28);;
+            font-weight: 800;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:0 15px;
+        
+        }
+        
+        .odd .text .text-title .line{
+            border: 1px solid rgba(173, 28, 28);;
+            width: 400px;
+            height: 0;
+          
+        }
+        .odd .about{
+            margin: 0;
+            padding:0 40px;
+            
+        }
+
+        /* 清單小小標 */
+        .odd .about h4{
+            display: inline-block;
+            padding: 5px;
+            text-align: center;
+            background-color: #000;
+            color:#fff;
+            
+        }        
+        .odd .about p{
+            display: flex;
+            margin: 0;
+            padding: 0 15px;
+            color:gray;
+            font-weight: 600;;
+        }      
+        .odd .about p span{
+
+            color:  rgba(173, 28, 28);
+            margin-right: 10px;
+        }
+
+        
+        /* 雙數區域 */
+        .even{
+            width: 960px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: end;
+        }
+        .even .title{
+            width: 320px;
+            height: 120px;
+            margin: 0px;
+            background-color: rgba(173, 28, 28);;
+            display:flex ;
+            justify-content:flex-end;
+            z-index: 1;
+        }
+        .even .title h1{           
+            font-size: 30px;
+            color: #fff;
+
+            
+        }
+        .even .title h1 span{
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            font-size: 80px;
+            vertical-align:middle;
+            line-height: 80px;
+            font-weight: 100;
+            
+        }
+
+        .even .second-title{
+            width: 300px;
+            color:#fff;
+            background-color: #000;
+            margin-top: 0px;
+            padding: 10px;
+            position: absolute;
+            right:0px;
+            top:0px;
+            z-index: 2;
+        }
+
+        .even .second-title p{
+          font-size:18px;
+          line-height: 1.5em;
+            
+        }
+
+        .even .introduce{
+            width: 100%;
+            display: flex;
+            justify-content: start;
+            align-items: center;  
+            position: relative;
+        }
+        .even .introduce img{
+            width: 800px;   
+            z-index: 1;
+            vertical-align: top;
+        }
+
+        .even .gray-bkg{
+            background-color: #eee;
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 30%;
+            top:-50px;
+            z-index: 0;
+        }
+
+        .even .text{
+            width: 670px;
+            background-color: #eee;
+            padding-bottom: 30px;
+            position: absolute;
+            right:0px;
+            top:92.5%;
+            z-index:2;
+        }
+
+        .even .text .text-title{
+            color:rgba(173, 28, 28);
+            font-weight: 800;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:0 15px;
+        }
+
+        .even .text .text-title .line{
+            border: 1px solid rgba(173, 28, 28);
+            width: 400px;
+            height: 0;
+          
+        }
+        .even .about{
+            margin: 0;
+            padding:0 40px;
+            
+        }
+
+        .even .about h4{
+            display: inline-block;
+            padding: 5px;
+            text-align: center;
+            background-color: #000;
+            color:#fff;
+            
+        }        
+        .even .about p{
+            display: flex;
+            margin: 0;
+            padding: 0 15px;
+            color:gray;
+            font-weight: 600;;
+        }       
+        .even .about p span{
+
+            color:  rgba(173, 28, 28);
+            margin-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="odd">
+            <div class="title">
+                <h1><span>01</span>操控樂趣</h1>
+            </div>
+            <div class="introduce">
+                    <article class="second-title">
+                        <h2>人人滿意的駕駛體驗</h2>
+                        <p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。</p>
+                    </article>
+                <img src="./pic/toyota1.png" alt="">
+                <div class="gray-bkg"></div>
+                <article class="text">
+                    <div class="text-title">
+                        <h3>因為我們做了這些革新</h3>
+                        <div class="line"></div>
+                    </div>
+                    <div class="about">
+                        <h4>低重心設計</h4>
+                        
+                        <p> <span>•</span>
+                            透過低重心設計，不僅呈現更低伏的外觀，能減少身側傾，保持高速行駛穩定性。
+                        </p>
+                        <h4>車體剛性強化</h4>
+                        <p><span>•</span>
+                            車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。
+                        </p>
+                        <h4>四輪獨立懸吊</h4>
+                        <p><span>•</span>
+                            搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <section class="even">
+            <div class="title">
+                <h1>安全守護<span>02</span></h1>
+            </div>
+            <div class="introduce">
+                    <article class="second-title">
+                        <h2>行車更安心的高剛性車體</h2>
+                        <p>您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞。世界級的安全功能讓您輕鬆自如享受旅程、毫無後顧之憂。</p>
+                    </article>
+                <img src="./pic/toyota2.png" alt="">
+                <div class="gray-bkg"></div>
+                <article class="text">
+                    <div class="text-title">
+                        <h3>因為我們做了這些革新</h3>
+                        <div class="line"></div>
+                    </div>
+                    <div class="about">
+                        <h4>主動安全</h4>
+                        <p> <span>•</span>
+                            以先進的TSS 系統，動偵測路況，輔助駕駛判斷路況並維持行車安全。
+                        </p>
+                        <h4>被動安全</h4>
+                        <p><span>•</span>
+                            堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼，強化座對意外事故的保護力。
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="odd">
+            <div class="title">
+                <h1><span>03</span>乘坐舒適</h1>
+            </div>
+            <div class="introduce">
+                    <article class="second-title">
+                        <h2>令人放鬆舒適的車室空間</h2>
+                        <p>車室空間設計著重人體工學，透過方向盤、踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛不疲勞的舒適駕馭體驗。</p>
+                    </article>
+                <img src="./pic/toyota3.png" alt="">
+                <div class="gray-bkg"></div>
+                <article class="text">
+                    <div class="text-title">
+                        <h3>因為我們做了這些革新</h3>
+                        <div class="line"></div>
+                    </div>
+                    <div class="about">
+                        <h4>駕駛位置最佳化</h4>
+                        <p> <span>•</span>
+                            針對駕駛位置進行徹底的修改，讓駕馭者可如同握手般自然且舒適地操控方向盤。
+                        </p>
+                        <h4>駕馭視野佳</h4>
+                        <p><span>•</span>
+                            考量駕駛坐進車內的高度，透過前擋風玻璃位的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕馭安全。
+                        </p>
+                        <h4>更寧靜的車室</h4>
+                        <p><span>•</span>
+                            採用最新三層結構的隔音材料，與引擎、變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的感受。
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="even">
+            <div class="title">
+                <h1>以人為本<span>04</span></h1>
+            </div>
+            <div class="introduce">
+                    <article class="second-title">
+                        <h2>使用者導向的貼心設計</h2>
+                        <p>藉由高度人性化的介面整合、傳遞車輛資訊，豐富日常駕駛體驗。<br>
+                            從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予即時回應。</p>
+                    </article>
+                <img src="./pic/toyota4.png" alt="">
+                <div class="gray-bkg"></div>
+                <article class="text">
+                    <div class="text-title">
+                        <h3>因為我們做了這些革新</h3>
+                        <div class="line"></div>
+                    </div>
+                    <div class="about">
+                        <h4>優異油耗表現</h4>
+                        <p> <span>•</span>
+                            以AURIS為例更強勁的高效引擎將熱效率提升40%，達到世界級水準，突破燃油效率新境界。
+                        </p>
+                        <h4>行李箱空間最適化</h4>
+                        <p><span>•</span>
+                            以PRIUS為例，透過將電池位置移到後座下方，讓行李廂擁有更大的空間。
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="odd">
+            <div class="title">
+                <h1><span>05</span>引以為傲</h1>
+            </div>
+            <div class="introduce">
+                    <article class="second-title">
+                        <h2>極具吸引力的精心設計</h2>
+                        <p>TNGA 車款擁有讓人忍不住回頭的新潮外觀、讓駕駛充滿自信的駕馭快感！不僅讓車主能展現個人風格，也能讓擁有者都能引以為傲。</p>
+                    </article>
+                <img src="./pic/toyota5.png" alt="">
+                <div class="gray-bkg"></div>
+                <article class="text">
+                    <div class="text-title">
+                        <h3>因為我們做了這些革新</h3>
+                        <div class="line"></div>
+                    </div>
+                    <div class="about">
+                        <h4>設計概念</h4>
+                        <p> <span>•</span>
+                            TNGA 低重心設計，不僅呈現更低伏的運動化外觀，更講高品質內裝的一致性。
+                        </p>
+                        <h4>環保概念</h4>
+                        <p><span>•</span>
+                            為了對環境保護盡一份心力，我們全面提升傳統引擎、變速箱與油電複合動力的動力效能。
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+       
+    </main>
+</body>
+</html>
