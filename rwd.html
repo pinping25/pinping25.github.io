@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --col-count:3
+
+        }
+        .item {
+            display: flex;
+            padding: 10px 10px;
+            margin: 10px 10px; 
+            box-sizing: border-box;   
+            background-color: rgba(196, 193, 193, 0.668);
+            align-items: center;     
+        }
+        .pic, .text{
+            width: 50%;
+            padding: 10px;
+        }
+        .pic img{
+            width: 100%;
+        }
+
+
+
+        @media screen and (min-width:768px) {
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                margin: auto;
+
+            }
+            .item {
+                justify-content: center;
+                width: calc(100% / var(--col-count) - 20px );
+                flex-wrap: wrap;
+            }
+            .pic, .text{
+                width: 100%;
+            }
+
+        }
+          
+        
+        @media screen and (min-width:1200px) {
+            .item:nth-child(-n+2){
+                --col-count:2;
+                flex-wrap: nowrap;           
+            }
+            .item:nth-child(-n+2) .pic,.text{
+                widows: 50%;     
+            }
+            
+            .item:nth-child(n+3)
+            {
+                --col-count:4; 
+                position: relative;
+            }
+            .item:nth-child(n+3) .pic {
+                width: 100%;
+                height: 100%;
+            }
+
+
+            .item:nth-child(n+3) .text
+            {
+                position: absolute;
+                width: 80%;
+                /* text-align: center; */
+                opacity: 0;
+                
+            }
+            .item:nth-child(n+3) .text:hover{
+                opacity: 1;
+                padding: 20% 20%;
+                background-color: rgba(0, 0, 0, .6);
+                color: #fff;
+                height: 100%;
+                width: 100%;            
+                box-sizing: border-box;
+            }
+
+
+
+        } 
+        
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=10">
+            </div>
+            <div class="text">
+                <p>1Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ratione impedit repudiandae fugit unde, eaque cum voluptas atque dolor suscipit, praesentium ad doloribus vitae quam corrupti repellat ex accusamus officiis.</p>
+            </div>
+        </div>    
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=5">
+            </div>
+            <div class="text">
+                <p>2Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ratione impedit repudiandae fugit unde, eaque cum voluptas atque dolor suscipit, praesentium ad doloribus vitae quam corrupti repellat ex accusamus officiis.</p>
+            </div>
+        </div>    
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=4">
+            </div>
+            <div class="text">
+                <p>3Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ratione impedit repudiandae fugit unde, eaque cum voluptas atque dolor suscipit, praesentium ad doloribus vitae quam corrupti repellat ex accusamus officiis.</p>
+            </div>
+        </div>    
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=3">
+            </div>
+            <div class="text">
+                <p>4Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ratione impedit repudiandae fugit unde, eaque cum voluptas atque dolor suscipit, praesentium ad doloribus vitae quam corrupti repellat ex accusamus officiis.</p>
+            </div>
+        </div>    
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=2">
+            </div>
+            <div class="text">
+                <p>5Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ratione impedit repudiandae fugit unde, eaque cum voluptas atque dolor suscipit, praesentium ad doloribus vitae quam corrupti repellat ex accusamus officiis.</p>
+            </div>
+        </div>    
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/200/200/?random=1">
+            </div>
+            <div class="text">
+                <p>6Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ratione impedit repudiandae fugit unde, eaque cum voluptas atque dolor suscipit, praesentium ad doloribus vitae quam corrupti repellat ex accusamus officiis.</p>
+            </div>
+        </div>    
+
+    </div>
+</body>
+</html>
