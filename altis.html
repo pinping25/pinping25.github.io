@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 900px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            z-index: -1;
+
+
+        }
+
+        #pic {
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+        }
+
+        .btns {
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            width: 100%;
+            top: 20%;
+
+
+        }
+
+
+        #btnL {
+            border-radius: 50%;
+            background-color: #000;
+            color: #fff;
+            font-size: 40px;
+            opacity: .5;
+            width: 50px;
+            height: 50px;
+
+
+
+
+        }
+        #btnR {
+            border-radius: 50%;
+            background-color: #000;
+            color: #fff;
+            font-size: 40px;
+            opacity: .5;
+            width: 50px;
+            height: 50px;
+            top: 30%;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>360度賞車</h1>
+        <div class="container">
+            <img id="pic" src="">
+        </div>
+        <div class="btns">
+                <button id="btnL">
+                    <strong> < </strong>
+                </button>
+                <button id="btnR">
+                    <strong> > </strong>
+                </button>
+            </div>
+        </div>
+
+
+</body>
+<script>
+    let CarArray =[];
+    let index = 0;
+    let btnR = document.getElementById("btnR");
+    let btnL = document.getElementById("btnL");
+    let pic = document.getElementById("pic");
+    window.onload = function(){
+
+        GetCarArray();
+        pic.src =CarArray[index]
+
+    }
+    btnR.addEventListener("click", function()
+    {
+        if(index>49)
+        {
+            index = 0
+        }
+        else
+        {
+            index++
+        }
+        pic.src = CarArray[index]
+        console.log(index)
+
+    })
+    btnL.addEventListener("click", function()
+    {
+        if(index < 1)
+        {
+            index = 50
+        }
+        else
+        {
+            index--
+        }
+        pic.src = CarArray[index]
+        console.log(index)
+
+    })
+
+    function GetCarArray(){
+        for(i=10001; i< 10052; i++)
+        {
+            let urlTemplate = `Red/${i}.png`;
+            CarArray.push(urlTemplate);
+            console.log(CarArray)
+        }
+    }
+
+
+
+</script>
+
+</html>

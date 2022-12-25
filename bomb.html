@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: Microsoft JhengHei;
+        }
+        .container {
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            width: 600px;
+            height: 900px;
+            justify-content: center;
+            background-color: #000;
+            border-radius: 10%;
+            margin-top: 10px;
+        }
+        .title {
+            color: yellow;
+            text-align: center;
+            font-size: 40px;
+        }
+        .number {
+            color: yellow;
+            text-align: center;
+            font-size: 40px;
+        }
+        .answer {
+            font-size: 40px;
+            text-align: center;
+            color: #000;
+            width: 50%;
+            height: 50px;
+        }
+        .btnNum {
+            margin: auto;
+            text-align: center;
+
+        }
+        .btn {
+            background-color:  #000;
+            border-color: yellow;
+            color: yellow;
+            width: 100px;
+            height: 100px;
+            margin: 10px 30px;
+            border-radius: 50%;
+            font-size: 40px;
+        }
+        .btn_function {
+            margin: auto;
+        }
+        .btn_function {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .f {
+            background-color:  #000;
+            border-color: yellow;
+            color: yellow;
+            font-size: 40px;
+            width: 150px;
+            height: 150px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 20%;
+            flex-wrap: wrap;
+        }
+        #reset
+        {
+            color: red;
+            border-color: red;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>終極密碼</h1>
+        </div>
+        <div class="number">
+            <p class="show">
+                請輸入<span class="min">0</span> ~ <span class="max">100</span>的數字
+            </p>
+        </div>
+        <input disabled class="answer">
+        <div class="btnNum">
+            <button class="btn" id="numOne">1</button>
+            <button class="btn" id="numTwo">2</button>
+            <button class="btn" id="numThree">3</button>
+            <button class="btn" id="numFour">4</button>
+            <button class="btn" id="numFive">5</button>
+            <button class="btn" id="numSix">6</button>
+            <button class="btn" id="numSeven">7</button>
+            <button class="btn" id="numEight">8</button>
+            <button class="btn" id="numNine">9</button>
+            <button class="btn" id="numZero">0</button>
+        </div>
+        <div class="btn_function">
+            <button class="f" id="reset">Start /Reset</button>
+            <button class="f" id="showAnswer">公布答案</button>
+            <button class="f" id="check">確認</button>
+        </div>
+
+    </div>
+    <script>
+        const myAnswer = document.querySelector('#reset');
+        const myShow = document.querySelector('#showAnswer');
+        const myInput =document.querySelector('.answer');
+        const myBtn = document.querySelectorAll('.btn')
+        const min = document.querySelector('.min');
+        const max = document.querySelector('.max');
+        const myCheck = document.querySelector('#check');
+        //let randomNum = Math.floor(Math.random()*100)+1 ;
+
+        myBtn.forEach((element) => {
+            element.addEventListener('click', function(){
+
+                if(myInput.value > 100)
+                {
+                    alert('別鬧')
+                    myInput.value =''
+                }
+                else
+                {
+                    myInput.value += element.innerText;
+                }
+            })
+        })
+        myAnswer.addEventListener('click', function(){
+            myInput.value =''
+            max.innerHTML = 100;
+            min.innerHTML = 0;
+            return randomNum = Math.floor(Math.random()*100)+1 ;
+
+
+        })
+        myShow.addEventListener('click', function(){
+            alert('正確密碼為:'+randomNum)
+        })
+        let maxNum = 100;
+        let minNum = 0;
+
+        myCheck.addEventListener('click', function(){
+            if(myInput.value == randomNum)
+            {
+                alert('恭喜答對')
+                myInput.value ='';
+            }
+            else if ( myInput.value > randomNum && myInput.value < maxNum)
+            {
+                maxNum = myInput.value;
+                max.innerText = maxNum ;
+                myInput.value ='';
+
+            }
+            else if (myInput.value < randomNum && myInput.value > minNum)
+            {
+                minNum = myInput.value;
+                min.innerText = minNum ;
+                myInput.value ='';
+            }
+            else
+            {
+                alert('請輸入範圍的數字');
+                myInput.value='';
+            }
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
