@@ -95,11 +95,11 @@
             <button type="button" class="ipad_btn btn btn-secondary">IPad</button>
             <button type="button" class="macbook_btn btn btn-secondary">Macbook</button>
         </div>
-        <div class="content">
-            <div class="pic">
+        <div class="row">
+            <div class="col-12 col-md-6">
                 <img id="m-pic" src="">
             </div>
-            <div class="intro">
+            <div class="col-12 col-md-6">
                 <div class="color">
 
 
@@ -246,9 +246,12 @@
                 colorbtn.addEventListener("click", function () {
                     pic.src = mainP.picture;
                     colortitle.innerHTML = `<strong>顏色-${item}<strong>`;
+                    pricetitle.innerHTML ="";
+                    
                 })
             })
         }
+        
         function CreateStorageBtn(myArray, Arr2) {
             let pricetitle = document.createElement("h1");
             capacity.innerHTML = "<h1>儲存裝置。<span>你需要多少儲存空間？</span></h1>";
