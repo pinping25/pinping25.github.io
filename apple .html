@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>apple.HW</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: Microsoft JhengHei;
+        }
+
+        .btn-group {
+            justify-content: center;
+            display: flex;
+        }
+
+        .content {
+            display: flex;
+            margin: 20px 0px;
+            box-sizing: border-box;
+        }
+
+        .pic {
+            width: 50%;
+            height: 100%;
+            text-align: center;
+        }
+
+
+        .intro {
+            width: 50%;
+        }
+
+        h1 {
+            font-size: 30px;
+            padding: 10px;
+        }
+        h2 {
+            font-size: 15px;
+            padding: 10px;
+        }
+        p {
+            padding: 0 10px;
+            font-size: 20px;
+        }
+
+        .color_btn {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+            border-radius: 50%;
+            overflow:hidden;
+            box-sizing: border-box;
+            border:none;
+        }
+        .color_btn:focus {
+            border:3px solid rgb(44, 94, 231);
+        }
+
+
+        .color_btn img {
+            width: 100%;
+            height: 100%;
+
+        }
+        .cap_btn {
+            font-size: 20px;
+            width: 100px;
+            padding: 10px;
+            margin: 10px;
+            box-sizing: border-box;
+            border-radius: 10%;
+            border:none;
+        }
+        .cap_btn:focus {
+            border:3px solid gray;
+
+        }
+        span {
+            color: gray;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="btn-group">
+            <button type="button" class="iphone_btn btn btn-secondary">IPhone</button>
+            <button type="button" class="ipad_btn btn btn-secondary">IPad</button>
+            <button type="button" class="macbook_btn btn btn-secondary">Macbook</button>
+        </div>
+        <div class="content">
+            <div class="pic">
+                <img id="m-pic" src="">
+            </div>
+            <div class="intro">
+                <div class="color">
+
+
+
+                </div>
+                <div class="capacity">
+
+
+
+                </div>
+                <div class="price">
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script>
+        let iphoneArray = [
+            { id: "A0001", color: "藍色", color_pic: "apple/iphone/finish-blue-202209.jpg", storage: "128GB", price: 27900, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-blue.jpg" },
+            { id: "A0002", color: "藍色", color_pic: "apple/iphone/finish-blue-202209.jpg", storage: "256GB", price: 31400, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-blue.jpg" },
+            { id: "A0003", color: "藍色", color_pic: "apple/iphone/finish-blue-202209.jpg", storage: "512GB", price: 38400, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-blue.jpg" },
+            { id: "A0004", color: "紫色", color_pic: "apple/iphone/finish-purple-202209.jpg", storage: "128GB", price: 27900, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-purple.jpg" },
+            { id: "A0005", color: "紫色", color_pic: "apple/iphone/finish-purple-202209.jpg", storage: "256GB", price: 31400, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-purple.jpg" },
+            { id: "A0006", color: "紫色", color_pic: "apple/iphone/finish-purple-202209.jpg", storage: "512GB", price: 38400, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-purple.jpg" },
+            { id: "A0007", color: "午夜色", color_pic: "apple/iphone/finish-midnight-202209.jpg", storage: "128GB", price: 27900, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-midnight.jpg" },
+            { id: "A0008", color: "午夜色", color_pic: "apple/iphone/finish-midnight-202209.jpg", storage: "256GB", price: 31400, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-midnight.jpg" },
+            { id: "A0009", color: "午夜色", color_pic: "apple/iphone/finish-midnight-202209.jpg", storage: "512GB", price: 38400, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-midnight.jpg" },
+            { id: "A0010", color: "星光色", color_pic: "apple/iphone//finish-starlight-202209.jpg", storage: "128GB", price: 27900, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-starlight.jpg" },
+            { id: "A0011", color: "星光色", color_pic: "apple/iphone/finish-starlight-202209.jpg", storage: "256GB", price: 31400, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-starlight.jpg" },
+            { id: "A0012", color: "星光色", color_pic: "apple/iphone/finish-starlight-202209.jpg", storage: "512GB", price: 38400, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-starlight.jpg" },
+            { id: "A0013", color: "(PRODUCT)RED", color_pic: "apple/iphone/finish-red-202209.jpg", storage: "128GB", price: 27900, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-product-red.jpg" },
+            { id: "A0014", color: "(PRODUCT)RED", color_pic: "apple/iphone/finish-red-202209.jpg", storage: "256GB", price: 31400, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-product-red.jpg" },
+            { id: "A0015", color: "(PRODUCT)RED", color_pic: "apple/iphone/finish-red-202209.jpg", storage: "512GB", price: 38400, picture: "apple/iphone/iphone-14-finish-select-202209-6-1inch-product-red.jpg" },
+        ]
+
+        let ipadArray = [
+            { id: "B0001", color: "藍色", color_pic: "apple/ipad/ipad-10th-gen-finish-blue-2022.png", storage: "64GB", price: 14900, picture: "apple/ipad/ipad-10th-gen-finish-select-202212-blue.jpg" },
+            { id: "B0002", color: "藍色", color_pic: "apple/ipad/ipad-10th-gen-finish-blue-2022.png", storage: "256GB", price: 19900, picture: "apple/ipad/ipad-10th-gen-finish-select-202212-blue.jpg" },
+            { id: "B0003", color: "粉紅色", color_pic: "apple/ipad/ipad-10th-gen-finish-pink-2022.png", storage: "64GB", price: 14900, picture: "apple/ipad/ipad-10th-gen-storage-select-202212-pink.jpg" },
+            { id: "B0004", color: "粉紅色", color_pic: "apple/ipad/ipad-10th-gen-finish-pink-2022.png", storage: "256GB", price: 19900, picture: "apple/ipad/ipad-10th-gen-storage-select-202212-pink.jpg" },
+            { id: "B0005", color: "銀色", color_pic: "apple/ipad/ipad-10th-gen-finish-silver-2022.png", storage: "64GB", price: 14900, picture: "apple/ipad/ipad-10th-gen-finish-select-202212-silver.jpg" },
+            { id: "B0006", color: "銀色", color_pic: "apple/ipad/ipad-10th-gen-finish-silver-2022.png", storage: "256GB", price: 19900, picture: "apple/ipad/ipad-10th-gen-finish-select-202212-silver.jpg" },
+            { id: "B0007", color: "黃色", color_pic: "apple/ipad/ipad-10th-gen-finish-yellow-2022.png", storage: "64GB", price: 14900, picture: "apple/ipad/ipad-10th-gen-finish-select-202212-yellow.jpg" },
+            { id: "B0008", color: "黃色", color_pic: "apple/ipad/ipad-10th-gen-finish-yellow-2022.png", storage: "256GB", price: 19900, picture: "apple/ipad/ipad-10th-gen-finish-select-202212-yellow.jpg" },
+        ]
+
+        let macArray = [
+            { id: "C0001", color: "太空灰色", color_pic: "apple/mac/macbook-air-space-gray-select-201810_SW_COLOR.jpg", storage: "256GB", price: 30900, picture: "apple/mac/macbook-air-space-gray-select-201810.jpg" },
+            { id: "C0002", color: "太空灰色", color_pic: "apple/mac/macbook-air-space-gray-select-201810_SW_COLOR.jpg", storage: "512GB", price: 36900, picture: "apple/mac/macbook-air-space-gray-select-201810.jpg" },
+            { id: "C0003", color: "太空灰色", color_pic: "apple/mac/macbook-air-space-gray-select-201810_SW_COLOR.jpg", storage: "1TB", price: 42900, picture: "apple/mac/macbook-air-space-gray-select-201810.jpg" },
+            { id: "C0004", color: "太空灰色", color_pic: "apple/mac/macbook-air-space-gray-select-201810_SW_COLOR.jpg", storage: "2TB", price: 54900, picture: "apple/mac/macbook-air-space-gray-select-201810.jpg" },
+            { id: "C0005", color: "金色", color_pic: "apple/mac/macbook-air-gold-select-201810_SW_COLOR.jpg", storage: "256GB", price: 30900, picture: "apple/mac/macbook-air-gold-select-201810.jpg" },
+            { id: "C0006", color: "金色", color_pic: "apple/mac/macbook-air-gold-select-201810_SW_COLOR.jpg", storage: "512GB", price: 36900, picture: "apple/mac/macbook-air-gold-select-201810.jpg" },
+            { id: "C0007", color: "金色", color_pic: "apple/mac/macbook-air-gold-select-201810_SW_COLOR.jpg", storage: "1TB", price: 42900, picture: "apple/mac/macbook-air-gold-select-201810.jpg" },
+            { id: "C0008", color: "金色", color_pic: "apple/mac/macbook-air-gold-select-201810_SW_COLOR.jpg", storage: "2TB", price: 54900, picture: "apple/mac/macbook-air-gold-select-201810.jpg" },
+            { id: "C0009", color: "銀色", color_pic: "apple/mac/macbook-air-silver-select-201810_SW_COLOR.jpg", storage: "256GB", price: 30900, picture: "apple/mac/macbook-air-silver-select-201810.jpg" },
+            { id: "C0010", color: "銀色", color_pic: "apple/mac/macbook-air-silver-select-201810_SW_COLOR.jpg", storage: "512GB", price: 36900, picture: "apple/mac/macbook-air-silver-select-201810.jpg" },
+            { id: "C0011", color: "銀色", color_pic: "apple/mac/macbook-air-silver-select-201810_SW_COLOR.jpg", storage: "1TB", price: 42900, picture: "apple/mac/macbook-air-silver-select-201810.jpg" },
+            { id: "C0012", color: "銀色", color_pic: "apple/mac/macbook-air-silver-select-201810_SW_COLOR.jpg", storage: "2TB", price: 54900, picture: "apple/mac/macbook-air-silver-select-201810.jpg" },
+        ]
+
+        let btnIphone = document.querySelector(".iphone_btn")
+        let btnIpad = document.querySelector(".ipad_btn")
+        let btnMac = document.querySelector(".macbook_btn")
+        let pic = document.getElementById("m-pic")
+        let color = document.querySelector(".color")
+        let capacity = document.querySelector(".capacity")
+        let price = document.querySelector(".price")
+
+
+        btnIphone.addEventListener("click", function () {
+            color.innerHTML="";
+            capacity.innerHTML="";
+            price.innerHTML="";
+            let colorArray = ArrangeColor(iphoneArray);
+            let storageArray = ArrangeStorage(iphoneArray);
+            pic.src = "apple/iphone/iphone-14-finish-select-202209-6-1inch.jpg"
+            pic.setAttribute("class", "img-fluid")
+            CreateColorBtn(colorArray, iphoneArray)
+            CreateStorageBtn(storageArray, iphoneArray)
+        })
+        btnIpad.addEventListener("click", function () {
+            color.innerHTML="";
+            capacity.innerHTML="";
+            price.innerHTML="";
+            let colorArray = ArrangeColor(ipadArray);
+            let storageArray = ArrangeStorage(ipadArray);
+            pic.src = "apple/ipad/ipad-10th-gen-finish-unselect-gallery-1-202212.jpg";
+            pic.setAttribute("class", "img-fluid");
+            CreateColorBtn(colorArray, ipadArray);
+            CreateStorageBtn(storageArray, ipadArray);
+        })
+        btnMac.addEventListener("click", function () {
+            color.innerHTML="";
+            capacity.innerHTML="";
+            price.innerHTML="";
+            let colorArray = ArrangeColor(macArray);
+            let storageArray = ArrangeStorage(macArray);
+            pic.src = "apple/mac/hero_mba_m1__mfge6fbp7t2m_large.jpg";
+            pic.setAttribute("class", "img-fluid");
+            CreateColorBtn(colorArray, macArray);
+            CreateStorageBtn(storageArray,  macArray);
+        })
+
+        function ArrangeColor(myArray) {
+            const empty = [];
+            myArray.forEach(item => {
+                empty.push(item.color);
+            })
+            return empty.filter(function (element, index, arr) {
+                return arr.indexOf(element) == index;
+            });
+        }
+
+        function ArrangeStorage(myArray) {
+            const empty = [];
+            myArray.forEach(item => {
+                empty.push(item.storage);
+            })
+            return empty.filter(function (element, index, arr) {
+                return arr.indexOf(element) == index;
+            });
+        }
+        function CreateColorBtn(myArray, Arr2) {
+            color.innerHTML = "<h1>外觀。<span>挑選你喜愛的外觀。</span></h1>";
+            let colortitle = document.createElement("h2");
+            color.appendChild(colortitle);
+            colortitle.innerHTML = "<strong>顏色-<strong>";
+            myArray.forEach(item => {
+                let colorbtn = document.createElement("button");
+                let colorpic = document.createElement("img");
+                colorbtn.setAttribute("class","color_btn");
+                colorbtn.appendChild(colorpic);
+                color.appendChild(colorbtn);
+                let mainP = Arr2.find(function (element, index, array) {
+                    return element.color == item;
+                })
+                colorpic.src = mainP.color_pic;
+                colorbtn.addEventListener("click", function () {
+                    pic.src = mainP.picture;
+                    colortitle.innerHTML = `<strong>顏色-${item}<strong>`;
+                })
+            })
+        }
+        function CreateStorageBtn(myArray, Arr2) {
+            let pricetitle = document.createElement("h1");
+            capacity.innerHTML = "<h1>儲存裝置。<span>你需要多少儲存空間？</span></h1>";
+            price.appendChild(pricetitle);
+            myArray.forEach(item => {
+                let capbtn = document.createElement("button");
+                capbtn.setAttribute("class","cap_btn");
+                capacity.appendChild(capbtn);
+                capbtn.innerText =item;
+                let mainP = Arr2.find(function (element, index, array) {
+                    return element.storage == item;
+                })
+                capbtn.addEventListener("click", function () {
+                    pricetitle.innerText = `價格:NT$${mainP.price}`;
+
+                })
+            })
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

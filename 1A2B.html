@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1A2B</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            box-sizing: border-box;
+            display: flex;
+            width: 900px;
+            height: 700px;
+            font-family: Microsoft JhengHei;
+            margin: auto;
+            background-color: #000;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 2%;
+        }
+
+        .container {
+            width: 50%;
+            height: 100%;
+            margin-right: 10px;
+            box-sizing: border-box;
+
+
+        }
+
+        .input {
+            width: 393px;
+            height: 50px;
+            font-size: 30px;
+            padding: 0 10px;
+        }
+
+        .num_btn {
+            width: 100%;
+            margin-top: 100px;
+
+        }
+
+        button {
+            width: 80px;
+            height: 60px;
+            margin: 10px 0;
+            font-size: 30px;
+            border-radius: 20%;
+        }
+        .btns:hover {
+            border: 2px solid white;
+        }
+        .guess:hover {
+            border: 2px solid white;
+        }
+        .start:hover {
+            border: 2px solid white;
+        }
+        .answer:hover {
+            border: 2px solid white;
+        }
+
+        .func_btn {
+            margin-top: 30px;
+        }
+
+        .guess {
+            width: 415px;
+            height: 150px;
+            border-radius: 3%;
+        }
+
+        .start,
+        .answer,
+        .reset {
+            width: 206px;
+            height: 150px;
+
+        }
+
+        .history {
+            width: 50%;
+            height: 100%;
+            background-color: #fff;
+            border-radius: 5%;
+            box-sizing: border-box;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+        }
+
+        .record {
+            background-color: rgba(201, 43, 43, 0.3);
+            border-radius: 2%;
+            width: 150px;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="container">
+            <input disabled placeholder="請輸入四位0~9不同之數字" class="input">
+            <div class="num_btn">
+                <button class="btns">0</button>
+                <button class="btns">1</button>
+                <button class="btns">2</button>
+                <button class="btns">3</button>
+                <button class="btns">4</button>
+                <button class="btns">5</button>
+                <button class="btns">6</button>
+                <button class="btns">7</button>
+                <button class="btns">8</button>
+                <button class="btns">9</button>
+            </div>
+            <div class="func_btn">
+                <button class="guess">Guess!!</button>
+                <button class="start">Start/Reset</button>
+                <button class="answer">Show answer</button>
+            </div>
+        </div>
+        <div class="history">
+        </div>
+    </div>
+    <script>
+        let input = document.querySelector(".input");
+        let btns = document.querySelectorAll(".btns");
+        let guess = document.querySelector(".guess");
+        let start = document.querySelector(".start");
+        let answer = document.querySelector(".answer");
+        let history = document.querySelector(".history");
+        let inputArray = [];
+        let answerArray = [];
+        let times = 0;
+
+
+        btns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                inputArray.push(btn.innerText);
+                if (inputArray.length < 5) {
+                    input.value += btn.innerText;
+                    this.disabled = true;
+                }
+                else {
+                    alert("請勿輸入超過四個數字");
+                }
+            })
+        });
+        guess.addEventListener('click', function () {
+            if (answerArray.length == 0) {
+                alert("請先按開始");
+            }
+            else if(inputArray.length < 4) {
+                alert("輸入不足四個數字，請重新輸入");
+                inputArray.length =[];
+                input.value ="";
+                btns.forEach(btn => {
+                    btn.disabled = false;
+                })
+
+            }
+            else {
+                let a = 0, b = 0;
+                let record = document.createElement("div");
+                record.setAttribute("class", "record")
+                for (let i = 0; i < answerArray.length; i++) {
+                    if (answerArray[i] == inputArray[i]) {
+                        a++;
+                    }
+                    else {
+                        for (let j = 0; j < answerArray.length; j++) {
+                            if (answerArray[i] == inputArray[j]) {
+                                b++;
+                            }
+                        }
+                    }
+                }
+                times += 1
+                record.innerText += `第${times}次:${input.value}: ${a}A${b}B`
+                history.append(record);
+                inputArray = []
+                input.value = ""
+                btns.forEach(btn => {
+                    btn.disabled = false;
+                })
+                if (a==4){
+                    alert("恭喜獲勝!!!!")
+                }
+            }
+
+
+
+        })
+        start.addEventListener('click', function () {
+
+            let num = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            if (answerArray.length > 0) {
+                location.reload();
+            }
+            else {
+                for (let i = 0; i < 4; i++) {
+                    let idx = Math.floor(Math.random() * num.length);
+                    answerArray.push(num[idx]);
+                    num.splice(idx, 1);
+                }
+            }
+        })
+        answer.addEventListener('click', function () {
+            let ans = "";
+            answerArray.forEach(nums => {
+                ans += nums
+            })
+            alert(ans)
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>
